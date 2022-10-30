@@ -14,7 +14,7 @@ void func1() {
     if (!isalpha(buffer[0])) {
         char errormsg[1044];
              
-        strncpy(errormsg, buffer,1024);
+        strncpy(errormsg, buffer, 1024);
         strcat(errormsg, " is not  a valid ID");
  	}
 }
@@ -24,7 +24,7 @@ void func2(int f2d) {
     size_t len;
 
     read(f2d, &len, sizeof(len));
-    buf = malloc(len+1);
+    buf = malloc(len + 1);
     read(f2d, buf2, len);
     buf2[len] = '\0';
 }
