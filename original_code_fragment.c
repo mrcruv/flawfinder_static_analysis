@@ -41,7 +41,7 @@ void func3(int f3d){
     }
 
     buf3 = malloc(len);
-    read(f3d, buf3,len);    
+    read(f3d, buf3, len);    
 }
 
 void main()
