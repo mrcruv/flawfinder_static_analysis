@@ -17,11 +17,11 @@ void func1() {
     
     ret = printf("Please enter your user id :"); // flawfinder: ignore
     
-    if (ret < 0) exit(EXIT_FAILURE); // actually the condition to be verified would be 'ret < strnlen("Please enter your user id :", 28)'
+    if (ret < 0) exit(EXIT_FAILURE); // actually the condition to be verified would be 'ret < strnlen("Please enter your user id :", 29)'
     
     if (fgets(buffer, FUNC1_BUFFER_SIZE, stdin) == NULL) exit(EXIT_FAILURE);
     
-    if (!isalpha(buffer[0])) {
+    if (!isalpha((unsigned char)buffer[0])) {
         char errormsg[1044]; // flawfinder: ignore
         
         hr = StringCbCopyA(errormsg, FUNC1_BUFFER_SIZE, buffer);
@@ -46,7 +46,7 @@ void func2(int f2d) {
 		exit(EXIT_FAILURE); // errno is set
 	}
 	
-    buf2 = calloc(len + 1, sizeof(char));
+    buf2 = (char *)calloc(len + 1, sizeof(char));
     
     if (buf2 == NULL) exit(EXIT_FAILURE);
     
