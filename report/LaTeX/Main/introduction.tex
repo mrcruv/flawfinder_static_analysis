@@ -1,0 +1,34 @@
+\section{Introduction to static analysis}
+
+\subsection{Static analysis}
+Static analysis is a set of techniques for verifying software without executing it (e.g., by examining the source code or the object code of a program).
+Actually, there are different static analysis approaches and tools such as human analysis, type checkers, text scanners and many others.
+
+Therefore, one of these static analysis tools will be described in the following subsection.
+
+\subsection{A static analysis tool:  \textit{flawfinder}}
+\textit{Flawfinder}\parencite{flawfinder} is a tool used to examine C/C++ source code and to report possible security vulnerabilities in the program.
+
+On the one hand, this tool has various strenghts:
+\begin{itemize}[itemsep=1.5pt]
+    \item it works by using a built-in database of C/C++ functions with well-known problems (e.g., buffer overflows, \ldots) so you do not need to create this database by yourself;
+    \item it carries out a list of potential security flaws (i.e., hits) sorted by risk and it may be able, in some cases, to determine that some construct are not dangerous at all, thus reducing false positives; 
+    \item it can analyse software that you cannot build and it can even analyse files you cannot compile, in some cases;
+    \item it gives finer information than simply running 'grep'\parencite{grep} Linux command on the source code (e.g., it knows to ignore comments and the insides of strings, it knows to examine parameters to estimate risk levels, \ldots).
+\end{itemize}
+
+On the other hand, \textit{flawfinder} has some weaknesses too:
+\begin{itemize}[itemsep=1.5pt]
+    \item it does not check on the data types of function arguments and it does not do control flow or data flow analysis at all (however, there exist other tools to analyse software more deeply);
+    \item it does not understand the semantics of the code at all: it mainly does (simple) text pattern matching;
+    \item it may report false positives (i.e., hits that are not actual security vulnerabilities);
+    \item it may not necessarily find every security vulnerability in the program.
+\end{itemize}
+
+Summing up, \textit{flawfinder} is a simple tool that can be helpful in finding (and then removing) security vulnerabilities in C/C++ programs.
+However, source code should nevertheless be inspected and evaluated to find possible vulnerabilities not reported by this tool.
+
+\subsection{Project repository}
+The project track carried out, the static analysis tool used, the different code fragment versions analysed, the images within this report and this latter itself, are collected in an online GitHub\parencite{github} repository.
+
+For further information please visit the following link: \href{https://github.com/mrcruv/flawfinder_static_analysis}{https://github.com/mrcruv/flawfinder\_static\_analysis}.

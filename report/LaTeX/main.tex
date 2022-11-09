@@ -1,0 +1,64 @@
+\documentclass{article}
+%% Useful packages
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{crop,graphicx,amsmath,array,color,amssymb,fancyhdr,lineno}
+\usepackage{flushend,stfloats,amsthm,chngpage,times,,lipsum,lastpage} 
+\usepackage{calc,listings,color,wrapfig,tabularx,longtable,enumitem}
+\usepackage[style=numeric-comp,backend=biber,sorting=none]{biblatex}
+\addbibresource{Refs.bib}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,     
+    urlcolor=blue,
+    citecolor=purple
+    }
+\urlstyle{same}
+%%%%%%%%%%%%   Header and Footer  %%%%%%%%%%%%%
+\pagestyle{fancy}
+\fancypagestyle{plain}{%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyhf{}%
+}
+
+\title{%
+  Project 1 \\
+  \large Static analysis of a C code fragment using \textit{flawfinder}}
+\author{Marco Ruvolo}
+
+\begin{document}
+\input{Title/title.tex}
+
+\sffamily
+
+\fancyhf{}
+\fancyhead[L]{}
+\fancyhead[R]{}
+\fancyfoot[R]{ \bf\thepage\ \rm }%
+
+\newpage
+\tableofcontents
+\listoffigures
+%\listoftables
+\pagebreak
+
+\input{Main/introduction.tex}
+\pagebreak
+
+\input{Main/analysis.tex}
+\pagebreak
+
+\input{Main/fix.tex}
+\pagebreak
+
+\printbibliography[heading=bibnumbered]
+\pagebreak
+
+\input{Appendix/Appendix.tex}
+\pagebreak
+
+\end{document}
